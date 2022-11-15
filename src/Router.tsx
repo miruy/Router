@@ -4,8 +4,10 @@ import Root from "./Root";
 import About from "./screens/About";
 import Home from "./screens/Home";
 import NotFound from "./screens/NotFound";
+import User from "./screens/users/User";
 
 // createBrowserRouter() : Router(경로)를 배열 형식으로 가지는 메서드
+// children(자식)안에서도 부모-자식 형태의 경로 설정 가능 (참고:노마드코더 masterclass 4.5 4:00)
 const router = createBrowserRouter([
   {
     // Home도 아니고 그 무엇도 아닌 / 자체를 의미, 부모 경로
@@ -22,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <About />,
+      },
+      {
+        path: "users/:userId",
+        element: <User />,
       },
     ],
 
