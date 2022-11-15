@@ -1,12 +1,14 @@
 import { Routes, Route, createBrowserRouter } from "react-router-dom";
+import ErrorComponent from "./componenets/ErrorComponent";
 import Root from "./Root";
 import About from "./screens/About";
 import Home from "./screens/Home";
+import NotFound from "./screens/NotFound";
 
 // createBrowserRouter() : Router(경로)를 배열 형식으로 가지는 메서드
 const router = createBrowserRouter([
   {
-    // / : Home도 아니고 그 무엇도 아닌 / 자체를 의미, 부모 경로
+    // Home도 아니고 그 무엇도 아닌 / 자체를 의미, 부모 경로
     path: "/",
     element: <Root />,
 
@@ -15,12 +17,16 @@ const router = createBrowserRouter([
       {
         path: "", // 자식 경로를 빈 문자열로 정의 시 부모 경로인 /와 같게 인식
         element: <Home />,
+        errorElement: <ErrorComponent />, // 에러 경로, /Home에서 에러 발생 시 실행
       },
       {
         path: "about",
         element: <About />,
       },
     ],
+
+    // 에러 경로, 자식 경로가 아닌 경로를 요청 시 실행
+    errorElement: <NotFound />,
   },
 ]);
 
