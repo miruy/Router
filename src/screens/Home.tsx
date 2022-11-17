@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { users } from "../db";
 
 function Home() {
@@ -10,6 +10,15 @@ function Home() {
     return <h1>{users[0].name}</h1>;
   */
 
+  /* 
+    useSearchParams() : get방식의 url의 search parameter를 가져오고(읽고), 수정하는 두개의 배열 요소를 가짐
+    const [searchParams, setSearchParams] = useSearchParams();
+    console.log(searchParams.has("key")); // key라는 search parameter를 가졌는가 -> boolean형식의 대답
+    console.log(searchParams.get("key")); // key라는 search parameter의 value를 가져와라 -> 해당 key의 value값
+    setSearchParams({ // ?key=value 모양의 search parameter를 ?day=today 모양으로 수정
+      day: "today",
+    }); 
+  */
   return (
     <div>
       <h1>Users</h1>
