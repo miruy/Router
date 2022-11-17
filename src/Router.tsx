@@ -4,6 +4,7 @@ import Root from "./Root";
 import About from "./screens/About";
 import Home from "./screens/Home";
 import NotFound from "./screens/NotFound";
+import Followers from "./screens/users/Followers";
 import User from "./screens/users/User";
 
 // createBrowserRouter() : Router(경로)를 배열 형식으로 가지는 메서드
@@ -28,6 +29,14 @@ const router = createBrowserRouter([
       {
         path: "users/:userId",
         element: <User />,
+
+        // users/:userId 페이지의 자식 경로
+        children: [
+          {
+            path: "followers",
+            element: <Followers />,
+          },
+        ],
       },
     ],
 
